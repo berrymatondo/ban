@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { IoMdMenu } from "react-icons/io";
+import logo from "../public/gogo.png";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +16,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="">
+      <body className="">
+        <div className="flex justify-between p-4">
+          <div className="w-10 h-10 overflow-hidden">
+            {/*         <div className="relative  sm:hidden -z-10  m-1 rounded-lg h-1/2 overflow-hidden">
+             */}{" "}
+            <Image
+              src={logo}
+              alt="background"
+              placeholder="blur"
+              quality={100}
+            />
+          </div>
+          <span>
+            <IoMdMenu size={30} />
+          </span>
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
